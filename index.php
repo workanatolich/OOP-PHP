@@ -1,34 +1,17 @@
 <?php
 
-class Student {
+class Employee {
     public $name;
-    public $course;
+    public $salary;
 
-    public function setName($name) {
-        $this->name = $name;
-    }
-    public function setCourse($course) {
-        if($this->isCourseCorrect($course)) {
-            $this->course = $course;
-        } else {
-            echo 'Такого курса нет';
-        }
+    public function __construct($name, $salary) {
+       $this->name = $name;
+       $this->salary = $salary;
     }
 
-    public function transferToNextCourse() {
-        if ($this->isCourseCorrect($this->course)) {
-            $this->course++;
-        }
-    }
-
-    private function isCourseCorrect($course) {
-        return $course > 1 && $course <= 5;
-    }
 }
 
-$student = new Student();
-$student->setName('John');
-$student->setCourse(3);
-$student->transferToNextCourse();
-$student->transferToNextCourse();
-echo $student->course;
+$emp1 = new Employee('John', 200);
+$emp2 = new Employee('Matt', 300);
+
+echo $emp1->salary+$emp2->salary;
