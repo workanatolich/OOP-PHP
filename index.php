@@ -1,47 +1,13 @@
 <?php
 
-class Employee {
-    private $name;
-    private $age;
-    private $salary;
+require_once 'City.php';
 
-    public function setName($name) {
-        $this->name = $name;
-    }
+$cities = [
+    new City('Moscow', '11.9'),
+    new City('Beijing', '21.5'),
+    new City('Kiev', '2.9')
+];
 
-    public function getName() {
-        return $this->name;
-    }
-
-    public function setAge($age) {
-        if($this->isAgeCorrect($age)) {
-            $this->age = $age;
-        } else {
-            echo 'Неверный возраст';
-        }
-    }
-
-    public function getAge() {
-        return $this->age;
-    }
-
-    public function setSalary($salary) {
-        $this->salary =$salary;
-    }
-
-    public function getSalary() {
-        return "$this->salary \$";
-    }
-
-    private function isAgeCorrect($age) {
-        return $age > 1 && $age <= 100;
-    }
-
+foreach ($cities as $city) {
+    echo $city->getName() .' - ' .$city->getPopulation() .'m' .'<br>';
 }
-
-$emp = new Employee();
-$emp->setName('John');
-$emp->setAge(30);
-$emp->setSalary(400);
-
-echo $emp->getSalary();
